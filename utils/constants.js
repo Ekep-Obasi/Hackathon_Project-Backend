@@ -4,6 +4,7 @@ const DB_USERNAME = process.env.DB_USERNAME;
 const DB_PASS = process.env.DB_PASS;
 const DB_LANG = process.env.DB_LANG;
 const SERVER_BASE_URL = process.env.SERVER_BASE_URL;
+const SALT_ROUNDS = +process.env.SALT_ROUNDS;
 
 module.exports = {
   DB_HOST,
@@ -12,4 +13,5 @@ module.exports = {
   DB_PASS,
   DB_NAME,
   SERVER_BASE_URL,
+  SALT_ROUNDS,
 };
