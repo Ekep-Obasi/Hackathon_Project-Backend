@@ -9,13 +9,16 @@ const Url = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    urlString: {
+    url: {
       type: DataTypes.STRING,
       allowNull: false,
     },
+    title: DataTypes.STRING,
+    description: DataTypes.STRING,
+    icon: DataTypes.STRING,
+    image: DataTypes.STRING,
     previewImgSrc: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
   },
   {
