@@ -1,4 +1,4 @@
 # Hackathon Project Backend
  
 
-A sample project express js web crawler that converts URL to screenshot
+A sample link previewer built with [express js](https://expressjs.com/)
