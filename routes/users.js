@@ -3,8 +3,7 @@ const User = require("../models/user");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const { SALT_ROUNDS } = require("../utils/constants");
-
-/* GET users listing. */
+const { signToken } = require("../utils/jwt");
 
 router.get("/", async (req, res) => {
   const users = await User.findAll();
@@ -16,6 +15,23 @@ router.get("/:id", async (req, res) => {
   const user = await User.findOne({ where: { id: req.params.id } });
   if (!user) res.status(403).send("User not Found");
   res.send(user);
+});
+
+router.post("/login", async (req, res) => {
+  const { email, password } = req.body;
+  const user = await User.findOne({ where: { email: email } });
+  if (!user) res.status(401).send("Unauthorised User");
+
+  bcrypt
+    .compare(password, user.password)
+    .then(() => {
+      const token = signToken({ id: user.id, email: user.email });
+      console.log(token);
+      res.status(200).send({ user, token });
+    })
+    .catch(() => {
+      res.send(500).send("Internal Error");
+    });
 });
 
 router.post("/", (req, res) => {

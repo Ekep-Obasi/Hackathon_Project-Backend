@@ -20,6 +20,13 @@ const Url = sequelize.define(
     previewImgSrc: {
       type: DataTypes.STRING,
     },
+    number_of_calls: {
+      type: DataTypes.INTEGER,
+      defaultValue: 1,
+    },
+    shorten: {
+      type: DataTypes.INTEGER,
+    },
   },
   {
     paranoid: true,

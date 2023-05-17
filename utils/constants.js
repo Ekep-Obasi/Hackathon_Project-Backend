@@ -5,6 +5,7 @@ const DB_PASS = process.env.DB_PASS;
 const DB_LANG = process.env.DB_LANG;
 const SERVER_BASE_URL = process.env.SERVER_BASE_URL;
 const SALT_ROUNDS = +process.env.SALT_ROUNDS;
+const JWT_SECRETE_KEY = process.env.JWT_SECRETE_KEY;
 
 module.exports = {
   DB_HOST,
@@ -14,4 +15,5 @@ module.exports = {
   DB_NAME,
   SERVER_BASE_URL,
   SALT_ROUNDS,
+  JWT_SECRETE_KEY,
 };
